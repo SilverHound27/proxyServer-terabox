@@ -1,0 +1,21 @@
+[Unit]
+Description=Proxy Server Tera
+After=network.target
+
+[Service]
+ExecStart=/home/jerryjosh1127/proxyServer/.venv/bin/python /home/jerryjosh1127/proxyServer/server.py
+Restart=always
+User=jerryjosh1127
+Group=jerryjosh1127
+WorkingDirectory=/home/jerryjosh1127/proxyServer
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
+
+
+sudo systemctl restart tera_proxy.service
+sudo systemctl start tera_proxy.service
+sudo systemctl stop tera_proxy.service
+sudo systemctl status tera_proxy.service
+sudo journalctl -u tera_proxy.service
